@@ -1,0 +1,39 @@
+---
+
+- hosts: random
+  become: true
+
+  vars:
+    username: uname
+    comment: cmnt
+    pwd: $6$otWt9HtAXEnQ$VfzWEnMnU4sqDcYUNsCoZjm4smk0lkoxtEKg/zX3ADWmXsIbwuixxnKzQp9HMy8rNgv8aHIwFwijVnA1h2fKl1
+    prigrp: pgrp
+    secgrp: sgrp
+    home: hme
+
+  tasks:
+    - name: user check
+      shell: id {{ username }}
+      ignore_errors: yes
+      register: usrchk
+    - name: user check result
+      debug:
+        msg: "The user: \"{{ username }}\" already exists on the {{ ansible_hostname }}"
+      when: usrchk.rc == 0
+
+    - name: user creation
+      user:
+        name: "{{ username }}"
+        comment: "{{ comment }}"
+        group: "{{ prigrp }}"
+        groups: "{{ secgrp }}"
+        home: "{{ home }}"
+        password: "{{ pwd }}"
+      when: usrchk.rc != 0
+      register: status
+    - name: force change password
+      command: "chage -d 0 {{ username }}"
+    - debug:
+        msg: "The user:{{ username }} has been created on {{ ansible_hostname }}"
+      when: status.changed
+

@@ -1,0 +1,18 @@
+---
+
+- hosts: random
+  become: true
+
+  tasks:
+    - name: Running pre-validation script on servers.
+      script: ~/DAT/pre-validation/scr_pre.sh
+      ignore_errors: yes
+
+    - name: copying outputs file....
+      fetch:
+        src: /tmp/details.txt
+        dest: ~/DAT/pre-validation/output/pre_valdnt_{{ ansible_hostname }}.{{ ansible_date_time.date }}
+        flat: yes
+
+    - debug:
+        msg: "Output has been copied to ~/DAT/pre-validation/output/"

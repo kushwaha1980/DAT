@@ -1,0 +1,12 @@
+[control]
+localhost
+
+[ubuntu]
+ubuntu1
+
+[centos]
+client1
+
+[random]
+client1
+ubuntu1

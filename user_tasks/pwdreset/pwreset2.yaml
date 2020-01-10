@@ -1,0 +1,37 @@
+---
+
+- hosts: random
+  become: true
+
+  vars:
+    password: $6$rounds=656000$y8YQxvgpUNOq0dFb$XVN2/rno6Zap8krBps02ePj24/hVSVM0D0Gfv.Mx0CS.HAAXgalbLsQR2V4pS6uEGYz2yBm6kbsj3BMud1E4G/
+    username: test
+
+  tasks:
+    - name: check user status
+      shell: id {{ username }}
+      ignore_errors: yes
+      register: status
+    - debug: 
+        msg: "The {{ username }} doesn't exist on {{ ansible_hostname }}"
+      when: status.rc != 0
+
+    - name: password reset
+      user:
+        name: "{{ username }}"
+        update_password: always
+        password: "{{ password }}"
+      register: result
+      when: status.rc == 0
+    - debug: 
+        msg: > 
+             {% if result.changed -%}
+               The password has been reset for {{ username }} on {{ ansible_hostname }}
+             {% else %}
+               Password didn't reset for {{ username }} on {{ ansible_hostname }}
+             {% endif %}
+    
+    - name: force change password
+      command: "chage -d 0 {{ username }}"
+      ignore_errors: yes
+

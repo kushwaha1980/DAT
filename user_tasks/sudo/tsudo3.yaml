@@ -1,0 +1,23 @@
+---
+- hosts: random
+  become: true
+
+  tasks:
+    - name: providing temp sudo
+      shell: /usr/local/bin/tempsudo {{ item.0 }} {{ item.1 }} {{ item.2 }}
+      with_together:
+        - user_list
+        - req_list
+        - day_list
+      register: result
+      ignore_errors: yes
+      
+#    - debug:
+#        msg: >
+#             {% if result.results.0.rc == 0 -%}
+#                The SUDO access has been provided to {{ result.results.0.item.0 }} on {{ ansible_hostname }}
+#             {% else %}
+#                Failure for {{ result.results.0.item.0 }} on {{ ansible_hostname }}
+#             {% endif %}
+#      loop:
+#        - "{{ result.results }}"

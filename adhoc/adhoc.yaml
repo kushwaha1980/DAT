@@ -1,0 +1,17 @@
+---
+- hosts: xyz
+  become: true
+  vars:
+    cmd: usr_input
+
+  tasks:
+    - name: adhoc command running
+      shell: "{{ cmd }}"
+      register: result
+
+    - debug:
+        var: result.stdout_lines
+#            >
+#            {% for line in result.stdout %}
+#              {{ line }}
+#            {% endfor %}
