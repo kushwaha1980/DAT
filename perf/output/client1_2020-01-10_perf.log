@@ -1,0 +1,112 @@
+[1;95m+------------------------------------------------------------------+[0;39m
+[1;96mDate:10.01.20-11:43
+Server Name: client1
+kernelrelease: 3.10.0-1062.4.1.el7.x86_64
+Internal IP: 192.168.174.139 192.168.174.138 192.168.122.1 
+External IP: 49.36.138.141
+uptime:  11:43:07 up 14:55,  2 users,  load average: 0.00, 0.01, 0.05\033[0;39m
+[1;95m+------------------------------------------------------------------+[0;39m
+[1;95m		Top CPU Process Using top command[0;39m
+[1;95m+------------------------------------------------------------------+[0;39m
+[1;94mtop - 11:43:07 up 14:55,  2 users,  load average: 0.00, 0.01, 0.05
+Tasks: 142 total,   2 running, 140 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  4.0 us, 36.0 sy,  0.0 ni, 60.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :   995748 total,   169708 free,   248152 used,   577888 buff/cache
+KiB Swap:   839676 total,   839676 free,        0 used.   567036 avail Mem 
+
+   PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
+ 21686 root      20   0  161888   2128   1516 R 13.6  0.2   0:00.10 top
+     1 root      20   0  128276   6892   4196 S  0.0  0.7   0:09.38 systemd
+     2 root      20   0       0      0      0 S  0.0  0.0   0:00.04 kthreadd
+     4 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 kworker/0:+
+     6 root      20   0       0      0      0 S  0.0  0.0   0:02.02 ksoftirqd/0
+     7 root      rt   0       0      0      0 S  0.0  0.0   0:00.00 migration/0
+     8 root      20   0       0      0      0 S  0.0  0.0   0:00.00 rcu_bh
+     9 root      20   0       0      0      0 R  0.0  0.0   0:03.24 rcu_sched
+    10 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 lru-add-dr+
+    11 root      rt   0       0      0      0 S  0.0  0.0   0:00.88 watchdog/0
+    13 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kdevtmpfs
+    14 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 netns
+    15 root      20   0       0      0      0 S  0.0  0.0   0:00.04 khungtaskd[0;39m
+
+Summary:
+[1;94mLinux 3.10.0-1062.4.1.el7.x86_64 (client1.example.com) 	01/10/2020 	_x86_64_	(1 CPU)
+
+11:43:07 AM     CPU     %user     %nice   %system   %iowait    %steal     %idle
+11:43:12 AM     all      0.00      0.00      0.20      0.00      0.00     99.80
+11:43:17 AM     all      0.20      0.00      0.60      0.00      0.00     99.20
+11:43:22 AM     all      0.00      0.00      0.41      0.00      0.00     99.59
+11:43:27 AM     all      0.20      0.00      0.20      0.00      0.00     99.60
+11:43:32 AM     all      0.20      0.00      0.61      0.00      0.00     99.19
+Average:        all      0.12      0.00      0.40      0.00      0.00     99.47[0;39m
+[1;95m+------------------------------------------------------------------+[0;39m
+[1;95m		Top Memory Process Using top command[0;39m
+[1;95m+------------------------------------------------------------------+[0;39m
+[1;94mtop - 11:43:33 up 14:55,  2 users,  load average: 0.00, 0.01, 0.05
+Tasks: 142 total,   2 running, 140 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us, 16.7 sy,  0.0 ni, 83.3 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :   995748 total,   169708 free,   248152 used,   577888 buff/cache
+KiB Swap:   839676 total,   839676 free,        0 used.   567036 avail Mem 
+
+   PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
+   859 root      20   0 1016544  18552  11320 S  0.0  1.9   0:00.61 libvirtd
+   851 root      20   0  574212  17464   6120 S  0.0  1.8   0:16.63 tuned
+   553 polkitd   20   0  624596  10212   4740 S  0.0  1.0   0:00.55 polkitd
+   532 root      20   0  478748   9312   6988 S  0.0  0.9   0:01.66 NetworkMan+
+ 17427 root      20   0  410444   7356   4220 S  0.0  0.7   0:00.43 packagekitd
+     1 root      20   0  128276   6892   4196 S  0.0  0.7   0:09.39 systemd
+   558 root      20   0  324492   6772   5276 S  0.0  0.7   2:50.50 vmtoolsd
+   299 root      20   0  201104   6212   2596 S  0.0  0.6   0:00.13 lvmetad
+ 18521 root      20   0  175536   6168   4716 S  0.0  0.6   0:05.15 sshd
+   557 root      20   0   99684   6072   4460 S  0.0  0.6   0:00.06 VGAuthServ+
+ 21442 root      20   0  166964   5648   4324 S  0.0  0.6   0:00.47 sshd
+   312 root      20   0   48612   5612   2868 S  0.0  0.6   0:00.39 systemd-ud+
+   534 root      20   0  228048   5608   3868 S  0.0  0.6   0:00.05 abrtd[0;39m
+
+Summary:
+[1;94m              total        used        free      shared  buff/cache   available
+Mem:            972         242         165          14         564         554
+Swap:           819           0         819[0;39m
+[1;95m+------------------------------------------------------------------+[0;39m
+[1;95m		FileSystem Utilization Report[0;39m
+[1;95m+------------------------------------------------------------------+[0;39m
+[1;94mFilesystem                 Size  Used Avail Use% Mounted on
+/dev/sda3                  6.9G  4.5G  2.5G  65% /[0;39m
+
+[1;95m+------------------------------------------------------------------+[0;39m
+[1;95m		Overall I/O Activities Report[0;39m
+[1;95m+------------------------------------------------------------------+[0;39m
+[1;94mLinux 3.10.0-1062.4.1.el7.x86_64 (client1.example.com) 	01/10/2020 	_x86_64_	(1 CPU)
+
+11:43:36 AM       tps      rtps      wtps   bread/s   bwrtn/s
+11:43:37 AM      6.06      0.00      6.06      0.00     48.48
+11:43:38 AM      0.00      0.00      0.00      0.00      0.00
+11:43:39 AM      0.00      0.00      0.00      0.00      0.00
+Average:         2.01      0.00      2.01      0.00     16.05[0;39m
+ 
+[1;94mLinux 3.10.0-1062.4.1.el7.x86_64 (client1.example.com) 	01/10/2020 	_x86_64_	(1 CPU)
+
+11:43:39 AM       DEV       tps  rd_sec/s  wr_sec/s  avgrq-sz  avgqu-sz     await     svctm     %util
+11:43:40 AM       sda      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+11:43:40 AM       sdb      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+11:43:40 AM oravg-lv_ext4      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+11:43:40 AM oravg-lv_xfs      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+
+Average:          DEV       tps  rd_sec/s  wr_sec/s  avgrq-sz  avgqu-sz     await     svctm     %util
+Average:          sda      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+Average:          sdb      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+Average:    oravg-lv_ext4      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+Average:    oravg-lv_xfs      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00[0;39m
+ 
+Abbreviations:
+[1;96mrd_sec/s: This shows you the total number of sectors on that device which is being read
+wr_sec/s: If rd_sec/s is sectors being read per second then obviously wr_sec is sectors being written per second
+avgrq-sz: This column shows the average
+await   : This shows the total number of time that the processor waited for requests regarding IO
+%util   : This column shows the usage of cpu in percentage when the request was generated
+tps     : Transactions per second (this includes both read and write)
+rtps    : Read transactions per second
+wtps    : Write transactions per second
+bread/s : Bytes read per second
+bwrtn/s : Bytes written per second 
+[0;39m

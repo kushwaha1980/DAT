@@ -114,7 +114,6 @@ while true; do
 					cd ~/DAT/adhoc
 					cat ~/DAT/adhoc/adhoc.yaml|sed "s/xyz/$target/g" > ~/DAT/adhoc/adhoc3.yaml
 					~/DAT/adhoc/scr.py
-					ansible-playbook ~/DAT/adhoc/adhoc2.yaml -K
 				else
 					break
 				fi
@@ -138,6 +137,7 @@ while true; do
 						echo -e "5). Overall I/O activities. \n"
 						echo -e "6). Report run queue and load average. \n"
 						echo -e "7). Report network statistics \n"
+						echo -e "8). PERFORMANCE REPORT \n"
 						echo -e "0). Exit \n"$NORMAL
 						read -p "Enter your choice: " Hcho
 					
@@ -242,9 +242,29 @@ echo -e "rxcmp/s :Compressed packets received"
 echo -e "txcmp/s :Compressed packets transmitted"
 echo -e "rxmcst/s:Packets multicasted per second \n"
                             echo " "
-                            sleep 5
-
+                            sleep 5;;
+							8)
+				if [ $target != "perf" ]; then
+                                	echo -e $BIRed"Please select the Perf Target Servers Group first...\n"$NORMAL
+                                	read dummy
+                        	else
+                                	echo -e "\n"
+                                	read -p "Have you updated Perf Target section in hosts file ? y/n: " input
+                                	if [[ "$input" =~ ^([yY][eE][sS]|[yY])$ ]]; then
+						echo -e "\n"
+                                        	echo -e "Welcome to the PERF HC section, please standby for the moment........\n"
+						cat ~/DAT/perf/perf.yaml|sed "s/abcz/$target/g" > ~/DAT/perf/perf2.yaml
+						ansible-playbook ~/DAT/perf/perf2.yaml -K
+					else
+						echo -e "Please update the perf section in host file"
+						read dummy
+					fi
+				fi
 						;;
+							*)
+								echo -e "Wrong Choice !!!!"
+								read dummy
+								continue;;
 						esac
 					done
 

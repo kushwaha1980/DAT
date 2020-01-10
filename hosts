@@ -1,10 +1,10 @@
-[control]
-localhost
-
 [ubuntu]
 ubuntu1
 
 [centos]
+client1
+
+[perf]
 client1
 
 [random]

@@ -1,0 +1,19 @@
+---
+
+- hosts: perf
+  become: true
+
+  tasks:
+    - name: running perf script
+      script: ~/DAT/perf/perfscr.sh
+      register: result
+
+    - name: fetching data
+      fetch:
+        src: /tmp/perf.log
+        dest: ~/DAT/perf/output/{{ inventory_hostname }}_{{ ansible_date_time.date }}_perf.log
+        flat: yes
+      when:  result.changed
+
+    - debug:
+        msg: "Health Report has been copied to ~/DAT/perf/output/"
