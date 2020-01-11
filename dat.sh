@@ -32,7 +32,8 @@ while true; do
                 1)
                         clear
                         if [ $target = $BIRed"None"$NORMAL ]; then
-                                echo -e $BIRed"Please select the Target Servers Group first...\n"$NORMAL
+				echo ""
+                                echo -e $BIRed"Please select the Target Servers Group first...Press Enter to continue !!!\n"$NORMAL
 				read dummy
                         else
 				echo -e "\n"
@@ -49,7 +50,8 @@ while true; do
                 2)
                         clear
                         if [ $target = $BIRed"None"$NORMAL ]; then
-                                echo -e $BIRed"Please select the Target Servers Group first...\n"$NORMAL
+				echo ""
+                                echo -e $BIRed"Please select the Target Servers Group first...Press Enter to continue !!!\n"$NORMAL
 				read dummy
                         else
 				echo -e "\n"
@@ -105,7 +107,8 @@ while true; do
                 3)
                         clear
                         if [ $target = $BIRed"None"$NORMAL ]; then
-                                echo -e $BIRed"Please select the Target Servers Group first...\n"$NORMAL
+				echo ""
+                                echo -e $BIRed"Please select the Target Servers Group first...Press Enter to continue !!!\n"$NORMAL
 				read dummy
                         else
                                 echo -e "\n"
@@ -120,12 +123,13 @@ while true; do
                         fi;;
 		4)
 			clear
-                        if [ $target = $BIRed"None"$NORMAL ]; then
-                                echo -e $BIRed"Please select the Target Servers Group first...\n"$NORMAL
+                        if [ $target != "perf" ]; then
+				echo ""
+                                echo -e $BIRed'Please select the "perf" Target Servers Group from option 22.....Press Enter to continue !!!\n'$NORMAL
 				read dummy
                         else
                                 echo -e "\n"
-				read -p "Have you updated Target section in hosts file ? y/n: " input
+				read -p "Have you updated Target "perf" section in hosts file ? y/n: " input
 				if [[ "$input" =~ ^([yY][eE][sS]|[yY])$ ]]; then
 					echo -e "Welcome to the Health check section.\n"
 					while true; do
@@ -137,7 +141,7 @@ while true; do
 						echo -e "5). Overall I/O activities. \n"
 						echo -e "6). Report run queue and load average. \n"
 						echo -e "7). Report network statistics \n"
-						echo -e "8). PERFORMANCE REPORT \n"
+						echo -e "11). PERFORMANCE REPORT \n"
 						echo -e "0). Exit \n"$NORMAL
 						read -p "Enter your choice: " Hcho
 					
@@ -243,23 +247,11 @@ echo -e "txcmp/s :Compressed packets transmitted"
 echo -e "rxmcst/s:Packets multicasted per second \n"
                             echo " "
                             sleep 5;;
-							8)
-				if [ $target != "perf" ]; then
-                                	echo -e $BIRed"Please select the Perf Target Servers Group first...\n"$NORMAL
-                                	read dummy
-                        	else
-                                	echo -e "\n"
-                                	read -p "Have you updated Perf Target section in hosts file ? y/n: " input
-                                	if [[ "$input" =~ ^([yY][eE][sS]|[yY])$ ]]; then
+							11)
 						echo -e "\n"
-                                        	echo -e "Welcome to the PERF HC section, please standby for the moment........\n"
+             echo -e "Welcome to the PERF HC section, after giving sudo password please standby for the moment........it would take some time to pull report.\n"
 						cat ~/DAT/perf/perf.yaml|sed "s/abcz/$target/g" > ~/DAT/perf/perf2.yaml
 						ansible-playbook ~/DAT/perf/perf2.yaml -K
-					else
-						echo -e "Please update the perf section in host file"
-						read dummy
-					fi
-				fi
 						;;
 							*)
 								echo -e "Wrong Choice !!!!"

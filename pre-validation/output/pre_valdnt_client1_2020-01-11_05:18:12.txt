@@ -50,22 +50,21 @@ System Boot Information
 	Status: No errors detected
 
 Linux client1.example.com 3.10.0-1062.4.1.el7.x86_64 #1 SMP Fri Oct 18 17:15:30 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
-Fri Jan 10 23:04:58 PST 2020
- 23:04:58 up 24 min,  3 users,  load average: 0.01, 0.03, 0.05
+Sat Jan 11 05:18:13 PST 2020
+ 05:18:13 up  1:17,  1 user,  load average: 0.17, 0.06, 0.06
 =============DF Output===================
 Filesystem                 Size  Used Avail Use% Mounted on
 devtmpfs                   474M     0  474M   0% /dev
 tmpfs                      487M     0  487M   0% /dev/shm
-tmpfs                      487M  8.2M  479M   2% /run
+tmpfs                      487M  8.1M  479M   2% /run
 tmpfs                      487M     0  487M   0% /sys/fs/cgroup
 /dev/sda3                  6.9G  4.5G  2.5G  65% /
 /dev/mapper/oravg-lv_xfs   597M   31M  567M   6% /fs_xfs
 /dev/mapper/oravg-lv_ext4  380M  2.3M  355M   1% /fs_ext4
 /dev/sda1                  297M  173M  124M  59% /boot
-tmpfs                       98M     0   98M   0% /run/user/0
 tmpfs                       98M     0   98M   0% /run/user/1000
 ==============DF Count ==============
-11
+10
 ===============VGDISPLAY=====================
   --- Volume group ---
   VG Name               oravg
@@ -146,58 +145,58 @@ UUID=b4d101f1-8917-4988-870e-059f2a295774 swap                    swap    defaul
 ================NETWORK DETAILS====================
 Kernel IP routing table
 Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
-0.0.0.0         192.168.174.2   0.0.0.0         UG        0 0          0 ens37
 0.0.0.0         192.168.174.2   0.0.0.0         UG        0 0          0 ens33
+0.0.0.0         192.168.174.2   0.0.0.0         UG        0 0          0 ens37
 192.168.122.0   0.0.0.0         255.255.255.0   U         0 0          0 virbr0
-192.168.174.0   0.0.0.0         255.255.255.0   U         0 0          0 ens37
 192.168.174.0   0.0.0.0         255.255.255.0   U         0 0          0 ens33
+192.168.174.0   0.0.0.0         255.255.255.0   U         0 0          0 ens37
 Active Internet connections (only servers)
 Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
 tcp        0      0 0.0.0.0:111             0.0.0.0:*               LISTEN      1/systemd           
-tcp        0      0 192.168.122.1:53        0.0.0.0:*               LISTEN      1165/dnsmasq        
-tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      852/sshd            
-tcp        0      0 127.0.0.1:25            0.0.0.0:*               LISTEN      1066/master         
+tcp        0      0 192.168.122.1:53        0.0.0.0:*               LISTEN      1146/dnsmasq        
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      850/sshd            
+tcp        0      0 127.0.0.1:25            0.0.0.0:*               LISTEN      1079/master         
 tcp6       0      0 :::111                  :::*                    LISTEN      1/systemd           
-tcp6       0      0 :::22                   :::*                    LISTEN      852/sshd            
-tcp6       0      0 ::1:25                  :::*                    LISTEN      1066/master         
-udp        0      0 0.0.0.0:35856           0.0.0.0:*                           528/avahi-daemon: r 
-udp        0      0 192.168.122.1:53        0.0.0.0:*                           1165/dnsmasq        
-udp        0      0 0.0.0.0:67              0.0.0.0:*                           1165/dnsmasq        
-udp        0      0 192.168.174.138:68      0.0.0.0:*                           527/NetworkManager  
-udp        0      0 192.168.174.139:68      0.0.0.0:*                           527/NetworkManager  
+tcp6       0      0 :::22                   :::*                    LISTEN      850/sshd            
+tcp6       0      0 ::1:25                  :::*                    LISTEN      1079/master         
+udp        0      0 192.168.122.1:53        0.0.0.0:*                           1146/dnsmasq        
+udp        0      0 0.0.0.0:67              0.0.0.0:*                           1146/dnsmasq        
+udp        0      0 192.168.174.138:68      0.0.0.0:*                           572/NetworkManager  
+udp        0      0 192.168.174.139:68      0.0.0.0:*                           572/NetworkManager  
 udp        0      0 0.0.0.0:111             0.0.0.0:*                           1/systemd           
-udp        0      0 0.0.0.0:699             0.0.0.0:*                           525/rpcbind         
-udp        0      0 0.0.0.0:5353            0.0.0.0:*                           528/avahi-daemon: r 
-udp        0      0 127.0.0.1:323           0.0.0.0:*                           547/chronyd         
+udp        0      0 0.0.0.0:698             0.0.0.0:*                           524/rpcbind         
+udp        0      0 0.0.0.0:5353            0.0.0.0:*                           552/avahi-daemon: r 
+udp        0      0 0.0.0.0:58624           0.0.0.0:*                           552/avahi-daemon: r 
+udp        0      0 127.0.0.1:323           0.0.0.0:*                           542/chronyd         
 udp6       0      0 :::111                  :::*                                1/systemd           
-udp6       0      0 :::699                  :::*                                525/rpcbind         
-udp6       0      0 ::1:323                 :::*                                547/chronyd         
+udp6       0      0 :::698                  :::*                                524/rpcbind         
+udp6       0      0 ::1:323                 :::*                                542/chronyd         
 ================Lan Details===========
 ens33: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         inet 192.168.174.139  netmask 255.255.255.0  broadcast 192.168.174.255
         inet6 fe80::8773:9827:5b49:f9b3  prefixlen 64  scopeid 0x20<link>
         ether 00:0c:29:85:16:ae  txqueuelen 1000  (Ethernet)
-        RX packets 478  bytes 44218 (43.1 KiB)
+        RX packets 4222  bytes 1295373 (1.2 MiB)
         RX errors 0  dropped 0  overruns 0  frame 0
-        TX packets 225  bytes 26670 (26.0 KiB)
+        TX packets 1027  bytes 156756 (153.0 KiB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 
 ens37: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         inet 192.168.174.138  netmask 255.255.255.0  broadcast 192.168.174.255
         inet6 fe80::c696:dbbf:edd3:fe7d  prefixlen 64  scopeid 0x20<link>
         ether 00:0c:29:85:16:b8  txqueuelen 1000  (Ethernet)
-        RX packets 783  bytes 256005 (250.0 KiB)
+        RX packets 2770  bytes 214112 (209.0 KiB)
         RX errors 0  dropped 0  overruns 0  frame 0
-        TX packets 284  bytes 39321 (38.3 KiB)
+        TX packets 52  bytes 9125 (8.9 KiB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 
 lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         inet 127.0.0.1  netmask 255.0.0.0
         inet6 ::1  prefixlen 128  scopeid 0x10<host>
         loop  txqueuelen 1000  (Local Loopback)
-        RX packets 12  bytes 1016 (1016.0 B)
+        RX packets 14  bytes 1114 (1.0 KiB)
         RX errors 0  dropped 0  overruns 0  frame 0
-        TX packets 12  bytes 1016 (1016.0 B)
+        TX packets 14  bytes 1114 (1.0 KiB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 
 virbr0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
@@ -243,6 +242,16 @@ ONBOOT=yes
 NAME=loopback
 ================Disk Status/Multipathing ====================
 
+Disk /dev/sdb: 2147 MB, 2147483648 bytes, 4194304 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk label type: dos
+Disk identifier: 0xe292fb24
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sdb1            2048     4194303     2096128   8e  Linux LVM
+
 Disk /dev/sda: 8589 MB, 8589934592 bytes, 16777216 sectors
 Units = sectors of 1 * 512 = 512 bytes
 Sector size (logical/physical): 512 bytes / 512 bytes
@@ -255,16 +264,6 @@ Disk identifier: 0x000e50aa
 /dev/sda2          616448     2295807      839680   82  Linux swap / Solaris
 /dev/sda3         2295808    16777215     7240704   83  Linux
 
-Disk /dev/sdb: 2147 MB, 2147483648 bytes, 4194304 sectors
-Units = sectors of 1 * 512 = 512 bytes
-Sector size (logical/physical): 512 bytes / 512 bytes
-I/O size (minimum/optimal): 512 bytes / 512 bytes
-Disk label type: dos
-Disk identifier: 0xe292fb24
-
-   Device Boot      Start         End      Blocks   Id  System
-/dev/sdb1            2048     4194303     2096128   8e  Linux LVM
-
 Disk /dev/mapper/oravg-lv_ext4: 419 MB, 419430400 bytes, 819200 sectors
 Units = sectors of 1 * 512 = 512 bytes
 Sector size (logical/physical): 512 bytes / 512 bytes
@@ -276,16 +275,16 @@ Units = sectors of 1 * 512 = 512 bytes
 Sector size (logical/physical): 512 bytes / 512 bytes
 I/O size (minimum/optimal): 512 bytes / 512 bytes
 
-Jan 10 23:05:06 | DM multipath kernel driver not loaded
-Jan 10 23:05:06 | /etc/multipath.conf does not exist, blacklisting all devices.
-Jan 10 23:05:06 | A default multipath.conf file is located at
-Jan 10 23:05:06 | /usr/share/doc/device-mapper-multipath-0.4.9/multipath.conf
-Jan 10 23:05:06 | You can run /sbin/mpathconf --enable to create
-Jan 10 23:05:06 | /etc/multipath.conf. See man mpathconf(8) for more details
-Jan 10 23:05:06 | DM multipath kernel driver not loaded
+Jan 11 05:18:13 | DM multipath kernel driver not loaded
+Jan 11 05:18:13 | /etc/multipath.conf does not exist, blacklisting all devices.
+Jan 11 05:18:13 | A default multipath.conf file is located at
+Jan 11 05:18:13 | /usr/share/doc/device-mapper-multipath-0.4.9/multipath.conf
+Jan 11 05:18:13 | You can run /sbin/mpathconf --enable to create
+Jan 11 05:18:13 | /etc/multipath.conf. See man mpathconf(8) for more details
+Jan 11 05:18:13 | DM multipath kernel driver not loaded
 ================FC/SCSI Details===========
 ================Running DBs ===========
-root       1822   1786  0 23:05 pts/1    00:00:00 grep -i pmon
+root       4566   4538  0 05:18 pts/0    00:00:00 grep -i pmon
 =============Installed Pkg Details ==========
 numad-0.5-18.20150602git.el7.x86_64
 yum-plugin-fastestmirror-1.1.31-52.el7.noarch

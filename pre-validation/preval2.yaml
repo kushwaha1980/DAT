@@ -11,7 +11,7 @@
     - name: copying outputs file....
       fetch:
         src: /tmp/details.txt
-        dest: ~/DAT/pre-validation/output/pre_valdnt_{{ ansible_hostname }}.{{ ansible_date_time.date }}
+        dest: ~/DAT/pre-validation/output/pre_valdnt_{{ ansible_hostname }}_{{ ansible_date_time.date }}_{{ ansible_date_time.time }}.txt
         flat: yes
 
     - debug:
