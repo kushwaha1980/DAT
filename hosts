@@ -1,7 +1,7 @@
 [perf]
 client1
-ubuntu1
+client2
 
 [random]
-client1
-ubuntu1
+client3
+ubuntu4
