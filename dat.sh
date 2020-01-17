@@ -32,9 +32,9 @@ while true; do
                         break;;
                 1)
                         clear
-                        if [ $target = $BIRed"None"$NORMAL ]; then
+                        if [ $target != "random" ]; then
 				echo ""
-                                echo -e $BIRed"Please select the Target Servers Group first...Press Enter to continue !!!\n"$NORMAL
+                                echo -e $BIRed"Please select the \"random\" Target Servers Group first...Press Enter to continue !!!\n"$NORMAL
 				read dummy
                         else
 				echo -e "\n"
@@ -50,9 +50,9 @@ while true; do
                         fi;;
                 2)
                         clear
-                        if [ $target = $BIRed"None"$NORMAL ]; then
+                        if [ $target != "random" ]; then
 				echo ""
-                                echo -e $BIRed"Please select the Target Servers Group first...Press Enter to continue !!!\n"$NORMAL
+                                echo -e $BIRed"Please select the \"random\" Target Servers Group first...Press Enter to continue !!!\n"$NORMAL
 				read dummy
                         else
 				echo -e "\n"
@@ -107,9 +107,9 @@ while true; do
                         fi;;
                 3)
                         clear
-                        if [ $target = $BIRed"None"$NORMAL ]; then
+                        if [ $target != "random" ]; then
 				echo ""
-                                echo -e $BIRed"Please select the Target Servers Group first...Press Enter to continue !!!\n"$NORMAL
+                                echo -e $BIRed"Please select the \"random\" Target Servers Group first...Press Enter to continue !!!\n"$NORMAL
 				read dummy
                         else
                                 echo -e "\n"
@@ -269,9 +269,9 @@ echo -e "rxmcst/s:Packets multicasted per second \n"
 
  							5)
                         					clear
-                        			if [ $target = $BIRed"None"$NORMAL ]; then
+                        			if [ $target != "random" ]; then
                                 			echo ""
-                                			echo -e $BIRed"Please select the Target Servers Group first...Press Enter to continue !!!\n"$NORMAL
+                                			echo -e $BIRed"Please select the \"random\" Target Servers Group first...Press Enter to continue !!!\n"$NORMAL
                                 			read dummy
                         			else
                                 			echo -e "\n"
