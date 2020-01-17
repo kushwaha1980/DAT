@@ -22,6 +22,7 @@ while true; do
         echo -e "2. User admin task.\n"
         echo -e "3. Run Ad-hoc command.\n"
 	echo -e "4. Health Check.\n"
+        echo -e "5. Patching.\n"
         echo -e "22. Please select Target Servers Group.\n"
         echo -e "0. Exit.\n"
         read -p "Please enter your choice: " choice
@@ -118,7 +119,7 @@ while true; do
 					cat ~/DAT/adhoc/adhoc.yaml|sed "s/xyz/$target/g" > ~/DAT/adhoc/adhoc3.yaml
 					~/DAT/adhoc/scr.py
 				else
-					break
+			echo -e $BIRed"Please select the Target Servers Group first...\n"$NORMAL		
 				fi
                         fi;;
 		4)
@@ -254,7 +255,7 @@ echo -e "rxmcst/s:Packets multicasted per second \n"
 						ansible-playbook ~/DAT/perf/perf2.yaml -K
 						;;
 							*)
-								echo -e "Wrong Choice !!!!"
+								echo -e "Wrong Choice Press Enter and try again!!!!"
 								read dummy
 								continue;;
 						esac
@@ -265,6 +266,25 @@ echo -e "rxmcst/s:Packets multicasted per second \n"
 				fi
                         fi
 			;;
+
+ 							5)
+                        					clear
+                        			if [ $target = $BIRed"None"$NORMAL ]; then
+                                			echo ""
+                                			echo -e $BIRed"Please select the Target Servers Group first...Press Enter to continue !!!\n"$NORMAL
+                                			read dummy
+                        			else
+                                			echo -e "\n"
+                         read -p "Have you updated Target section in hosts file AND taken server configuration output from \"Pre-validation section\" ? y/n: " input
+                                			if [[ "$input" =~ ^([yY][eE][sS]|[yY])$ ]]; then
+                                        			cd ~/DAT/patching
+                                        			cat ~/DAT/patching/patch.yaml|sed "s/xyz/$target/g" > ~/DAT/patching/patch3.yaml
+                                       				ansible-playbook patch3.yaml -K
+								sleep 5
+                                			else
+     echo -e $BIRed"Please select the Target Servers Group and take the configuration backup from Pre-validation section first...\n"$NORMAL
+                                			fi
+                        			fi;;
 
                 22)
                         while true; do

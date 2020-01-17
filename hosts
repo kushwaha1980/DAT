@@ -1,11 +1,6 @@
-[ubuntu]
-ubuntu1
-
-[centos]
-client1
-
 [perf]
 client1
+ubuntu1
 
 [random]
 client1

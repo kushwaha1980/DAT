@@ -1,0 +1,17 @@
+---
+- hosts: random
+  become: true
+  vars:
+    username: spiderman
+
+  tasks:
+    - name: user deletion
+      user:
+        name: "{{ username }}"
+        state: absent
+        remove: yes
+      register: udel
+    - name: user deletion msg
+      debug:
+        msg: "The {{ username }} has been delted from the {{ ansible_hostname }}"
+      when: udel.changed

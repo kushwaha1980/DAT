@@ -4,8 +4,8 @@
   become: true
 
   vars:
-    username: test
-    comment: 
+    username: hello
+    comment: testing
     pwd: $6$otWt9HtAXEnQ$VfzWEnMnU4sqDcYUNsCoZjm4smk0lkoxtEKg/zX3ADWmXsIbwuixxnKzQp9HMy8rNgv8aHIwFwijVnA1h2fKl1
     prigrp: 
     secgrp: 
@@ -33,7 +33,10 @@
       register: status
     - name: force change password
       command: "chage -d 0 {{ username }}"
-    - debug:
-        msg: "The user:{{ username }} has been created on {{ ansible_hostname }}"
-      when: status.changed
+    - name: assert testing
+      assert:
+        that: 
+          - status.changed
+      success_msg: "The user:{{ username }} has been created on {{ ansible_hostname }}"
+      fail_msg: The user:{{ username }} not created on {{ ansible_hostname }}"
 
