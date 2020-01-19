@@ -2,7 +2,7 @@
 							Daily Activity Tool
 Gen Info:
 
-This tool is a combination of Ansible/bash and python. The intention is to reduce daily activity workload for sysadmins.
+This tool is a combination of Ansible/bash and python. The intention is to reduce daily activity workload for Linux sysadmins.
 This tools worked on two ~/hosts file section - perf and random.
 
 - perf : This section will be used for Health check section. The seperate section is being used since performance issues normally stayed longer than expected so you would not need to update servers frequently. 
@@ -22,8 +22,8 @@ To use this tool:
 - Please don't modify the internal directory structure it may impact this tool functionality.
 - once the obove done please run the ./dat.sh script and follow the instructions.
 
-Cautions:
-- Please use this tool carefully. The patching section will reboot the server if kernel is updated.
+Remarks:
+- Please use this tool carefully. The patching [RHEL/CentOS] section will reboot the server if kernel is updated.
 - last but not the least, this tool may need some improvement and will be done as we move ahead based on the requirment/feedback.
 - Please use it in single test server first and once you are confirtable and confident use as per your requirement :)
 
