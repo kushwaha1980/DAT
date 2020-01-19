@@ -2,7 +2,7 @@
 - hosts: random
   become: true
   vars:
-    cmd: uname -s
+    cmd: uptime
 
   tasks:
     - name: adhoc command running

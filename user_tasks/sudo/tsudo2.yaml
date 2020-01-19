@@ -6,9 +6,9 @@
     - name: providing temp sudo
       shell: /usr/local/bin/tempsudo {{ item.0 }} {{ item.1 }} {{ item.2 }}
       with_together:
-        - [harshi]
-        - [sd122]
-        - [22]
+        - [ram]
+        - [sd111]
+        - [21]
       register: result
       ignore_errors: yes
       

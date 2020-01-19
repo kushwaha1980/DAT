@@ -4,7 +4,7 @@
   become: true
 
   vars:
-    username: hello
+    username: ram
     comment: testing
     pwd: $6$otWt9HtAXEnQ$VfzWEnMnU4sqDcYUNsCoZjm4smk0lkoxtEKg/zX3ADWmXsIbwuixxnKzQp9HMy8rNgv8aHIwFwijVnA1h2fKl1
     prigrp: 
@@ -33,10 +33,7 @@
       register: status
     - name: force change password
       command: "chage -d 0 {{ username }}"
-    - name: assert testing
-      assert:
-        that: 
-          - status.changed
-      success_msg: "The user:{{ username }} has been created on {{ ansible_hostname }}"
-      fail_msg: The user:{{ username }} not created on {{ ansible_hostname }}"
+    - debug:
+        msg: "The user:{{ username }} has been created on {{ ansible_hostname }}"
+      when: status.changed
 

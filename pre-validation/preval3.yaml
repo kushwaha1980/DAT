@@ -1,6 +1,6 @@
 ---
 
-- hosts: xyz
+- hosts: random
   become: true
   vars:
     cwd: /home/kumar/dat/pre-validation

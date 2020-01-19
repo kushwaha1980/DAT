@@ -2,17 +2,19 @@
 
 - hosts: xyz
   become: true
+  vars:
+    cwd: dir
 
   tasks:
     - name: Running pre-validation script on servers.
-      script: ~/DAT/pre-validation/scr_pre.sh
+      script: "{{ cwd }}/scr_pre.sh"
       ignore_errors: yes
 
     - name: copying outputs file....
       fetch:
         src: /tmp/details.txt
-        dest: ~/DAT/pre-validation/output/pre_valdnt_{{ ansible_hostname }}_{{ ansible_date_time.date }}_{{ ansible_date_time.time }}.txt
+        dest: "{{ cwd }}/output/pre_valdnt_{{ ansible_hostname }}_{{ ansible_date_time.date }}_{{ ansible_date_time.time }}.txt"
         flat: yes
 
     - debug:
-        msg: "Output has been copied to ~/DAT/pre-validation/output/"
+        msg: "Output has been copied to {{ cwd }}/output/"

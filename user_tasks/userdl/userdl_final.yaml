@@ -2,7 +2,7 @@
 - hosts: random
   become: true
   vars:
-    username: spiderman
+    username: final
 
   tasks:
     - name: user deletion

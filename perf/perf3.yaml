@@ -1,6 +1,6 @@
 ---
 
-- hosts: abcz
+- hosts: perf
   become: true
   vars:
     path: /home/kumar/dat/perf

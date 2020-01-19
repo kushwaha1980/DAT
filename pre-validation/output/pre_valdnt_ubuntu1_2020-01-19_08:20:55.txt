@@ -1,0 +1,54 @@
+=============SERVER DETAILS=====================
+Linux ubuntu1 4.4.0-157-generic #185-Ubuntu SMP Tue Jul 23 09:17:01 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
+Sun Jan 19 08:20:57 UTC 2020
+ 08:20:57 up  2:59,  1 user,  load average: 1.41, 0.85, 0.80
+=============DF Output===================
+Filesystem      Size  Used Avail Use% Mounted on
+overlay          19G  9.7G  8.1G  55% /
+tmpfs            64M     0   64M   0% /dev
+tmpfs           1.5G     0  1.5G   0% /sys/fs/cgroup
+shm              64M     0   64M   0% /dev/shm
+/dev/sda1        19G  9.7G  8.1G  55% /etc/hosts
+tmpfs           1.5G     0  1.5G   0% /proc/asound
+tmpfs           1.5G     0  1.5G   0% /proc/acpi
+tmpfs           1.5G     0  1.5G   0% /proc/scsi
+tmpfs           1.5G     0  1.5G   0% /sys/firmware
+==============DF Count ==============
+10
+===============VGDISPLAY=====================
+=========================NFS Exported FS================
+===============FSTAB DETAILS=====================
+# UNCONFIGURED FSTAB FOR BASE SYSTEM
+================NETWORK DETAILS====================
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+0.0.0.0         172.20.0.1      0.0.0.0         UG        0 0          0 eth0
+172.20.0.0      0.0.0.0         255.255.0.0     U         0 0          0 eth0
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 127.0.0.11:40555        0.0.0.0:*               LISTEN      -                   
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      26/sshd             
+tcp6       0      0 :::22                   :::*                    LISTEN      26/sshd             
+udp        0      0 127.0.0.11:52507        0.0.0.0:*                           -                   
+================Lan Details===========
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.20.10.1  netmask 255.255.0.0  broadcast 172.20.255.255
+        ether 02:42:ac:14:0a:01  txqueuelen 0  (Ethernet)
+        RX packets 982  bytes 1515992 (1.5 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 1033  bytes 139950 (139.9 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        loop  txqueuelen 1  (Local Loopback)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+================Disk Status/Multipathing ====================
+================FC/SCSI Details===========
+================Running DBs ===========
+root       698   679  0 08:20 pts/1    00:00:00 grep -i pmon
+=============Installed Pkg Details ==========

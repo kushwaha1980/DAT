@@ -1,0 +1,105 @@
+[1;95m+------------------------------------------------------------------+[0;39m
+[1;96mDate:19.01.20-08:05
+Server Name: ubuntu1
+kernelrelease: 4.4.0-157-generic
+Internal IP: 172.20.10.1 
+External IP: 
+uptime:  08:05:00 up  2:43,  1 user,  load average: 0.59, 0.85, 0.84\033[0;39m
+[1;95m+------------------------------------------------------------------+[0;39m
+[1;95m		Top CPU Process Using top command[0;39m
+[1;95m+------------------------------------------------------------------+[0;39m
+[1;94mtop - 08:05:00 up  2:43,  1 user,  load average: 0.59, 0.85, 0.84
+Tasks:  13 total,   1 running,  12 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  8.0 us,  8.2 sy,  0.0 ni, 83.6 id,  0.0 wa,  0.0 hi,  0.3 si,  0.0 st
+KiB Mem :  3071160 total,  1570136 free,   514500 used,   986524 buff/cache
+KiB Swap:   998396 total,   998396 free,        0 used.  2359080 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+    1 root      20   0    4628    804    736 S   0.0  0.0   0:00.26 sh
+    6 root      20   0   18508   3252   2904 S   0.0  0.1   0:00.00 bash
+   26 root      20   0   72296   3140   2396 S   0.0  0.1   0:00.00 sshd
+  105 root      20   0  107984   7168   6168 S   0.0  0.2   0:00.00 sshd
+  120 kumar     20   0  108328   5168   3900 S   0.0  0.2   0:00.02 sshd
+  184 kumar     20   0    4628    804    736 S   0.0  0.0   0:00.00 sh
+  185 kumar     20   0    4628    868    804 S   0.0  0.0   0:00.00 sh
+  186 root      20   0   60580   3796   3312 S   0.0  0.1   0:00.00 sudo
+  187 root      20   0    4628    844    780 S   0.0  0.0   0:00.00 sh
+  188 root      20   0    9920   2680   2428 S   0.0  0.1   0:00.00 perfscr.sh
+  199 root      20   0    9920   1776   1520 S   0.0  0.1   0:00.00 perfscr.sh
+  200 root      20   0   36484   3064   2700 R   0.0  0.1   0:00.00 top
+  201 root      20   0    4544    788    728 S   0.0  0.0   0:00.00 head[0;39m
+
+Summary:
+[1;94mLinux 4.4.0-157-generic (ubuntu1) 	01/19/20 	_x86_64_	(2 CPU)
+
+08:05:00        CPU     %user     %nice   %system   %iowait    %steal     %idle
+08:05:05        all      8.65      0.00      8.76      0.00      0.00     82.59
+08:05:10        all      9.26      0.00      7.84      0.00      0.00     82.90
+08:05:15        all      7.80      0.00      8.24      0.00      0.00     83.96
+08:05:20        all      9.57      0.00      9.24      0.00      0.00     81.20
+08:05:25        all      8.96      0.00      8.42      0.00      0.00     82.62
+Average:        all      8.85      0.00      8.50      0.00      0.00     82.65[0;39m
+[1;95m+------------------------------------------------------------------+[0;39m
+[1;95m		Top Memory Process Using top command[0;39m
+[1;95m+------------------------------------------------------------------+[0;39m
+[1;94mtop - 08:05:25 up  2:44,  1 user,  load average: 0.54, 0.81, 0.82
+Tasks:  13 total,   1 running,  12 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  8.0 us,  8.2 sy,  0.0 ni, 83.6 id,  0.0 wa,  0.0 hi,  0.3 si,  0.0 st
+KiB Mem :  3071160 total,  1569192 free,   514920 used,   987048 buff/cache
+KiB Swap:   998396 total,   998396 free,        0 used.  2358660 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+  105 root      20   0  107984   7168   6168 S   0.0  0.2   0:00.00 sshd
+  120 kumar     20   0  108328   5168   3900 S   0.0  0.2   0:00.02 sshd
+  186 root      20   0   60580   3796   3312 S   0.0  0.1   0:00.00 sudo
+    6 root      20   0   18508   3252   2904 S   0.0  0.1   0:00.00 bash
+   26 root      20   0   72296   3140   2396 S   0.0  0.1   0:00.00 sshd
+  205 root      20   0   36484   3064   2700 R   0.0  0.1   0:00.00 top
+  188 root      20   0    9920   2692   2428 S   0.0  0.1   0:00.00 perfscr.sh
+  204 root      20   0    9920   1784   1520 S   0.0  0.1   0:00.00 perfscr.sh
+  185 kumar     20   0    4628    868    804 S   0.0  0.0   0:00.00 sh
+  206 root      20   0    4544    848    784 S   0.0  0.0   0:00.00 head
+  187 root      20   0    4628    844    780 S   0.0  0.0   0:00.00 sh
+    1 root      20   0    4628    804    736 S   0.0  0.0   0:00.26 sh
+  184 kumar     20   0    4628    804    736 S   0.0  0.0   0:00.00 sh[0;39m
+
+Summary:
+[1;94m              total        used        free      shared  buff/cache   available
+Mem:           2999         502        1532          31         963        2303
+Swap:           974           0         974[0;39m
+[1;95m+------------------------------------------------------------------+[0;39m
+[1;95m		FileSystem Utilization Report[0;39m
+[1;95m+------------------------------------------------------------------+[0;39m
+[1;94mFilesystem      Size  Used Avail Use% Mounted on[0;39m
+
+[1;95m+------------------------------------------------------------------+[0;39m
+[1;95m		Overall I/O Activities Report[0;39m
+[1;95m+------------------------------------------------------------------+[0;39m
+[1;94mLinux 4.4.0-157-generic (ubuntu1) 	01/19/20 	_x86_64_	(2 CPU)
+
+08:05:31          tps      rtps      wtps   bread/s   bwrtn/s
+08:05:32         0.00      0.00      0.00      0.00      0.00
+08:05:33         0.00      0.00      0.00      0.00      0.00
+08:05:34         0.00      0.00      0.00      0.00      0.00
+Average:         0.00      0.00      0.00      0.00      0.00[0;39m
+ 
+[1;94mLinux 4.4.0-157-generic (ubuntu1) 	01/19/20 	_x86_64_	(2 CPU)
+
+08:05:34          DEV       tps     rkB/s     wkB/s   areq-sz    aqu-sz     await     svctm     %util
+08:05:35          sda      3.00      0.00     84.00     28.00      0.00      0.00      0.00      0.00
+
+Average:          DEV       tps     rkB/s     wkB/s   areq-sz    aqu-sz     await     svctm     %util
+Average:          sda      3.00      0.00     84.00     28.00      0.00      0.00      0.00      0.00[0;39m
+ 
+Abbreviations:
+[1;96mrd_sec/s: This shows you the total number of sectors on that device which is being read
+wr_sec/s: If rd_sec/s is sectors being read per second then obviously wr_sec is sectors being written per second
+avgrq-sz: This column shows the average
+await   : This shows the total number of time that the processor waited for requests regarding IO
+%util   : This column shows the usage of cpu in percentage when the request was generated
+tps     : Transactions per second (this includes both read and write)
+rtps    : Read transactions per second
+wtps    : Write transactions per second
+bread/s : Bytes read per second
+bwrtn/s : Bytes written per second 
+[0;39m

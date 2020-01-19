@@ -4,8 +4,8 @@
   become: true
 
   vars:
-    password: $6$rounds=656000$y8YQxvgpUNOq0dFb$XVN2/rno6Zap8krBps02ePj24/hVSVM0D0Gfv.Mx0CS.HAAXgalbLsQR2V4pS6uEGYz2yBm6kbsj3BMud1E4G/
-    username: test
+    password: $6$rounds=656000$pNvVGcPla.X84xfz$uZjjLYGzASpuSj0DDXDa5SUUL7h.oATQSjonL7yiwkIQSIY84.NjQ4bdfdm3jpKAkVD1TDB5sxl9KFa2AkEbI.
+    username: final
 
   tasks:
     - name: check user status

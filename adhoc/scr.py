@@ -1,8 +1,9 @@
 #!/usr/bin/python
 import sys, subprocess
 cmd_input=raw_input("Please enter your command: ")
+#pwd = os.getcwd()
 
-if "init" in cmd_input or "shutdown" in cmd_input:
+if "reboot" in cmd_input or "shutdown" in cmd_input or "init" in cmd_input:
 	print("Sorry!!!....currently this action is not allowed")
 	sys.exit(0)
 else:
@@ -14,4 +15,4 @@ else:
 	nfo=open("adhoc2.yaml", "wt")
 	nfo.write(data)
 	nfo.close()
-	subprocess.call("ansible-playbook ~/DAT/adhoc/adhoc2.yaml -K", shell=True)
+	subprocess.call("ansible-playbook adhoc2.yaml -K" , shell=True)

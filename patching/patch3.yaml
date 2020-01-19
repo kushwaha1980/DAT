@@ -13,32 +13,32 @@
         state: latest
 
     - name: Check for reboot hint.
-      shell: LAST_KERNEL=$(rpm -q --last kernel|awk '{print $1}'|sed 's/^kernel-//'|head -1); CURRENT_KERNEL=$(uname -r); if [ "$LAST_KERNEL" != "$CURRENT_KERNEL" ]; then echo 'reboot'; else echo 'no'; fi
+      shell: LAST_KERNEL=$(rpm -q --last kernel|awk '{print $1}'|sed 's/^kernel-//'|head -1); CURRENT_KERNEL=$(uname -r); if [ "$LAST_KERNEL" = "$CURRENT_KERNEL" ]; then echo 'reboot'; else echo 'no'; fi
       ignore_errors: true
       register: reboot_hint
 
-    - name: "Rebooting ..."
-      shell: sleep 3 && shutdown -r now && sleep 2
-      async: 1
-      poll: 0
-      ignore_errors: true
+    - name: executing reboot block
       when: reboot_hint.stdout.find("reboot") != -1
+      block:
+        - name: "Rebooting ..."
+          shell: sleep 3 && shutdown -r now && sleep 2
+          async: 1
+          poll: 0
+          ignore_errors: true
 
-    - name: Wait for machine to restart. If this is physical m/c it can take a while...
-      local_action: wait_for host={{ inventory_hostname }} state=started delay=30 timeout=120
-      sudo: false
-      register: result
-      when: reboot_hint.stdout.find("reboot") != -1
+        - name: Wait for machine to restart. If this is physical m/c it can take a while...
+          local_action: wait_for host={{ inventory_hostname }} state=started delay=30 timeout=120
+          sudo: false
+          register: result
 
-    - name: validate the status of service
-      assert:
-        that:
-          - ansible_facts.services["{{ item }}"].state == 'running'
-        success_msg: "{{ ansible_facts.services[item] }} is running OK"
-        fail_msg: " {{ item }} is *NOT* running OK"
-      ignore_errors: true
-      loop:
-        - sshd.service
-        - NetworkManager.service
-        - chronyd.service
-      when: reboot_hint.stdout.find("reboot") != -1
+        - name: validate the status of service
+          assert:
+            that:
+              - ansible_facts.services["{{ item }}"].state == 'running'
+            success_msg: "{{ ansible_facts.services[item] }} is running OK"
+            fail_msg: " {{ item }} is *NOT* running OK"
+          ignore_errors: true
+          loop:
+            - sshd.service
+            - NetworkManager.service
+            - chronyd.service

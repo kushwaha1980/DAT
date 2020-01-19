@@ -16,13 +16,23 @@ echo -e "\tTarget Servers: $target"
         echo -e "========================================================================================"$NORMAL
 }
 
+pwd=$(pwd)
+host=$(ls -ltr ~/hosts|awk '{print $9}')
+
 while true; do
         my_heading
+	echo -e $BICyan"\t\t[random]"$NORMAL
         echo -e "1. Pre-validation task.\n"
-        echo -e "2. User admin task.\n"
+        echo -e "2. User admin tasks.\n"
         echo -e "3. Run Ad-hoc command.\n"
-	echo -e "4. Health Check.\n"
-        echo -e "5. Patching.\n"
+        echo -e "4. Server Patching.\n"
+	echo "----------------------------"
+	echo -e $BICyan"\t\t[perf]"$NORMAL
+	echo ""
+	echo -e "5. Performance Health Checks.\n"
+	echo "----------------------------"
+	echo -e $BICyan"\t   <=Gen Options=>"$NORMAL
+	echo ""
         echo -e "22. Please select Target Servers Group.\n"
         echo -e "0. Exit.\n"
         read -p "Please enter your choice: " choice
@@ -34,29 +44,30 @@ while true; do
                         clear
                         if [ $target != "random" ]; then
 				echo ""
-                                echo -e $BIRed"Please select the \"random\" Target Servers Group first...Press Enter to continue !!!\n"$NORMAL
+                                echo -e $BIRed"Please select the \"random\" Target Servers Group first, use: Option 22...Press Enter to continue !!!\n"$NORMAL
 				read dummy
                         else
 				echo -e "\n"
-				read -p "Have you updated $target section in hosts file ? y/n: " response
+				read -p "Have you updated $target section in $host file ? y/n: " response
 				if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
                                 	echo -e "Welcome to the Pre-validation.\n"
-					cd ~/DAT/pre-validation
-					cat ~/DAT/pre-validation/preval.yaml| sed "s/xyz/$target/g" > ~/DAT/pre-validation/preval2.yaml
-					ansible-playbook ~/DAT/pre-validation/preval2.yaml -K
+					cd $pwd/pre-validation; ./cwd.py
+					cat preval2.yaml| sed "s/xyz/$target/g" > preval3.yaml
+					ansible-playbook $pwd/pre-validation/preval3.yaml -K
 				else
-					echo -e $BIYellow"Please update the Target section first"$NORMAL
+					echo -e $BIYellow"Please update the $target Target section in $host file!!\n"$NORMAL
+					echo ""
 				fi
                         fi;;
                 2)
                         clear
                         if [ $target != "random" ]; then
 				echo ""
-                                echo -e $BIRed"Please select the \"random\" Target Servers Group first...Press Enter to continue !!!\n"$NORMAL
+                                echo -e $BIRed"Please select the \"random\" Target Servers Group first, use: Option 22...Press Enter to continue !!!\n"$NORMAL
 				read dummy
                         else
 				echo -e "\n"
-                                read -p "Have you updated Target section in hosts file ? y/n: " response
+                                read -p "Have you updated Target section in $host file ? y/n: " response
                                 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
                                 	echo -e "Welcome to the User admin tasks.\n"
                                 	while true; do
@@ -72,27 +83,27 @@ while true; do
                                                         	break;;
                                                 	1)
                                                         	echo -e "Welcome to the User creation.\n"
-								cd ~/DAT/user_tasks/usercr
-								cat ~/DAT/user_tasks/usercr/usercrl.yaml| sed "s/xyz/$target/g" > ~/DAT/user_tasks/usercr/usercr3.yaml
-								~/DAT/user_tasks/usercr/scr.sh
+								cd $pwd/user_tasks/usercr
+								cat usercrl.yaml| sed "s/xyz/$target/g" > usercr3.yaml
+								./scr.sh
 								sleep 5;;
                                                 	2)
                                                         	echo -e "Welcome to the User deletion.\n"
-								cd ~/DAT/user_tasks/userdl
-								cat ~/DAT/user_tasks/userdl/userdl.yaml| sed "s/abc/$target/g" > ~/DAT/user_tasks/userdl/userdl_new.yaml
+								cd $pwd/user_tasks/userdl
+								cat userdl.yaml| sed "s/abc/$target/g" > userdl_new.yaml
 								./scrdl.sh
 								sleep 5;;
                                                 	3)
                                                         	echo -e "Welcome to the temporary sudo access.\n"
-								cd ~/DAT/user_tasks/sudo
-								cat ~/DAT/user_tasks/sudo/tsudo.yaml|sed "s/xyz/$target/g" > ~/DAT/user_tasks/sudo/tsudo3.yaml
-								~/DAT/user_tasks/sudo/scr_sudo.py
+								cd $pwd/user_tasks/sudo
+								cat tsudo.yaml|sed "s/xyz/$target/g" > tsudo3.yaml
+								./scr_sudo.py
 								sleep 5;;
 							4)	echo -e "Welcome to the local user's password reset section.\n"
-								cd ~/DAT/user_tasks/pwdreset
-							cat ~/DAT/user_tasks/pwdreset/pwreset1.yaml|sed "s/abc/$target/g" > ~/DAT/user_tasks/pwdreset/pwreset2.yaml
-								~/DAT/user_tasks/pwdreset/scr_pw.py
-								ansible-playbook ~/DAT/user_tasks/pwdreset/pwreset2.yaml -K
+								cd $pwd/user_tasks/pwdreset
+								cat pwreset1.yaml|sed "s/abc/$target/g" > pwreset2.yaml
+								./scr_pw.py
+								ansible-playbook pwreset2.yaml -K
 								sleep 5;;
                                                 	*)
                                                         	echo -e "Wrong choice, please enter valid option.\n"
@@ -101,7 +112,8 @@ while true; do
                                         	esac
                                 	done
 				 else
-                                        echo -e $BIYellow"Please update the $target section first"$NORMAL
+                                        echo -e $BIYellow"Please update the $target section in $host file!!\n"$NORMAL
+					echo ""
                                 fi
 
                         fi;;
@@ -109,28 +121,50 @@ while true; do
                         clear
                         if [ $target != "random" ]; then
 				echo ""
-                                echo -e $BIRed"Please select the \"random\" Target Servers Group first...Press Enter to continue !!!\n"$NORMAL
+                                echo -e $BIRed"Please select the \"random\" Target Servers Group first, use: Option 22...Press Enter to continue !!!\n"$NORMAL
 				read dummy
                         else
                                 echo -e "\n"
-				read -p "Have you updated Target section in hosts file ? y/n: " input
+				read -p "Have you updated Target section in $host file ? y/n: " input
 				if [[ "$input" =~ ^([yY][eE][sS]|[yY])$ ]]; then
-					cd ~/DAT/adhoc
-					cat ~/DAT/adhoc/adhoc.yaml|sed "s/xyz/$target/g" > ~/DAT/adhoc/adhoc3.yaml
-					~/DAT/adhoc/scr.py
+					cd $pwd/adhoc
+					cat adhoc.yaml|sed "s/xyz/$target/g" > adhoc3.yaml
+					./scr.py
 				else
-			echo -e $BIRed"Please select the Target Servers Group first...\n"$NORMAL		
+			echo -e $BIRed"Please update the $target Target Servers Group in $host file!!\n"$NORMAL		
 				fi
                         fi;;
-		4)
+
+
+                                                        4)
+                                                                clear
+                                                if [ $target != "random" ]; then
+                                                        echo ""
+                                        echo -e $BIRed"Please select the \"random\" Target Servers Group first, use: Option 22....Press Enter to continue !!!\n"$NORMAL
+                                                        read dummy
+                                                else
+                                                        echo -e "\n"
+                         read -p "Have you updated Target section in hosts file AND taken server configuration output from \"Pre-validation section\" ? y/n: " input
+                                                        if [[ "$input" =~ ^([yY][eE][sS]|[yY])$ ]]; then
+                                                                cd $pwd
+                                                                cat patching/patch.yaml|sed "s/xyz/$target/g" > patching/patch3.yaml
+                                                                ansible-playbook patching/patch3.yaml -K
+                                                                sleep 5
+                                                        else
+     echo -e $BIRed"Please update the $target Target Servers Group (in $host file) and take the configuration backup from Pre-validation section first...\n"$NORMAL
+                                                        fi
+                                                fi;;
+
+
+		5)
 			clear
                         if [ $target != "perf" ]; then
 				echo ""
-                                echo -e $BIRed'Please select the "perf" Target Servers Group from option 22.....Press Enter to continue !!!\n'$NORMAL
+                                echo -e $BIRed'Please select the "perf" Target Servers Group, use: Option 22.....Press Enter to continue !!!\n'$NORMAL
 				read dummy
                         else
                                 echo -e "\n"
-				read -p "Have you updated Target "perf" section in hosts file ? y/n: " input
+				read -p "Have you updated Target "perf" section in $host file ? y/n: " input
 				if [[ "$input" =~ ^([yY][eE][sS]|[yY])$ ]]; then
 					echo -e "Welcome to the Health check section.\n"
 					while true; do
@@ -251,8 +285,9 @@ echo -e "rxmcst/s:Packets multicasted per second \n"
 							11)
 						echo -e "\n"
              echo -e "Welcome to the PERF HC section, after giving sudo password please standby for the moment........it would take some time to pull report.\n"
-						cat ~/DAT/perf/perf.yaml|sed "s/abcz/$target/g" > ~/DAT/perf/perf2.yaml
-						ansible-playbook ~/DAT/perf/perf2.yaml -K
+						cd $pwd/perf; ./path.py
+						cat perf2.yaml|sed "s/abcz/$target/g" > perf3.yaml
+						ansible-playbook $pwd/perf/perf3.yaml -K
 						;;
 							*)
 								echo -e "Wrong Choice Press Enter and try again!!!!"
@@ -262,29 +297,12 @@ echo -e "rxmcst/s:Packets multicasted per second \n"
 					done
 
 				else
-					echo -e $BIYellow"Please update the $target section first"$NORMAL
+					echo -e $BIYellow"Please update the $target section in $host file first\n"$NORMAL
+					echo ""
 				fi
                         fi
 			;;
 
- 							5)
-                        					clear
-                        			if [ $target != "random" ]; then
-                                			echo ""
-                                			echo -e $BIRed"Please select the \"random\" Target Servers Group first...Press Enter to continue !!!\n"$NORMAL
-                                			read dummy
-                        			else
-                                			echo -e "\n"
-                         read -p "Have you updated Target section in hosts file AND taken server configuration output from \"Pre-validation section\" ? y/n: " input
-                                			if [[ "$input" =~ ^([yY][eE][sS]|[yY])$ ]]; then
-                                        			cd ~/DAT/patching
-                                        			cat ~/DAT/patching/patch.yaml|sed "s/xyz/$target/g" > ~/DAT/patching/patch3.yaml
-                                       				ansible-playbook patch3.yaml -K
-								sleep 5
-                                			else
-     echo -e $BIRed"Please select the Target Servers Group and take the configuration backup from Pre-validation section first...\n"$NORMAL
-                                			fi
-                        			fi;;
 
                 22)
                         while true; do
